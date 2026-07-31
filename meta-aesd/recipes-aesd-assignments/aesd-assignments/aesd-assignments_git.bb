@@ -13,7 +13,7 @@ SRC_URI = "git://git@github.com/KrishnenduMarathe/assignment3-and-later-aesd-kri
 PV = "1.0+git${SRCPV}"
 
 # TODO: set to reference a specific commit hash in your assignment repo
-SRCREV = "8afff55e612f02c78f808f4b549355a5a8a5aeda"
+SRCREV = "0d3fb7b55d1ae75e2707c0009e9615205b7825b2"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-WORKDIR
