@@ -14,20 +14,11 @@ jobs:
             clean: false
             submodules: 'recursive'
 
-        - name: Install dependencies
-          run: |
-            apt update
-            apt install -y nodejs openssh-client sshpass
-            apt install -y build-essential chrpath cpio debianutils diffstat file gawk gcc git iputils-ping libacl1 libcrypt-dev locales python3 python3-git python3-jinja2 python3-pexpect python3-pip python3-subunit socat texinfo unzip wget xz-utils zstd
-            apt install -y qemu-system-arm qemu-efi-aarch64 cloud-image-utils netcat valgrind
-            echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
-            locale-gen
-
         - uses: webfactory/ssh-agent@v0.5.4
           with:
             ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-        - name: Run build
+        - name: Install dependencies & Run build
           timeout-minutes: 600
           run: |
             docker run --rm \
@@ -36,7 +27,12 @@ jobs:
             -v ${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE} \
             cuaesd/aesd-autotest:assignment6-yocto \
             --workdir=${GITHUB_WORKSPACE} \
-            ./build.sh
+            bash -c "cd ${GITHUB_WORKSPACE} && \
+            apt update && \
+            apt install -y nodejs openssh-client sshpass build-essential chrpath cpio debianutils diffstat file gawk gcc git iputils-ping libacl1 libcrypt-dev locales python3 python3-git python3-jinja2 python3-pexpect python3-pip python3-subunit socat texinfo unzip wget xz-utils zstd qemu-system-arm qemu-efi-aarch64 cloud-image-utils netcat valgrind && \
+            echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen && \
+            locale-gen && \
+            ./build.sh"
 
         - name: Cleanup
           if: always()
