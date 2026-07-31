@@ -1,5 +1,3 @@
-inherit gitpkgv
-
 # See https://git.yoctoproject.org/poky/tree/meta/files/common-licenses
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
@@ -8,8 +6,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 # about how to setup ssh-agent for passwordless access
 # SRC_URI = "git@github.com:KrishnenduMarathe/assignment3-and-later-aesd-krishnendumarathe;protocol=ssh;branch=master"
 
-PV = "1.0+git${SRCPV}"
-PKGV = "1.0+git${GITPKGV}"
+PV = "1.0+git"
 
 # TODO: set to reference a specific commit hash in your assignment repo
 SRCREV = "8afff55e612f02c78f808f4b549355a5a8a5aeda"
