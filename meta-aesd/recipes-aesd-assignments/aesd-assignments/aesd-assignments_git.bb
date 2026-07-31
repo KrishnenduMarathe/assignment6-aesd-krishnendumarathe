@@ -5,8 +5,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 # TODO: Set this  with the path to your assignments rep.  Use ssh protocol and see lecture notes
 # about how to setup ssh-agent for passwordless access
 SRC_URI = "git@github.com:KrishnenduMarathe/assignment3-and-later-aesd-krishnendumarathe;protocol=ssh;branch=master"
-
-PV = "1.0+git"
+PV = "1.0+git${SRCPV}"
 
 # TODO: set to reference a specific commit hash in your assignment repo
 SRCREV = "8afff55e612f02c78f808f4b549355a5a8a5aeda"
