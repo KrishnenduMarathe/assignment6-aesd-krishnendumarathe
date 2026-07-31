@@ -28,7 +28,7 @@ do_configure () {
 }
 
 do_compile () {
-	oe_runmake CC="${CC}" LDFLAGS="${LDFLAGS}"
+	oe_runmake CC="${CC}" CLIBS="${LDFLAGS}"
 }
 
 do_install () {
