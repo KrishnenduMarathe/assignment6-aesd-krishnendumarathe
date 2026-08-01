@@ -29,6 +29,9 @@ FILES:${PN} += "${bindir}/aesdsocket ${sysconfdir}/init.d/aesdsocket"
 # (and remove comment)
 TARGET_LDFLAGS += "-lpthread -lrt"
 
+# Requirements for running in yocto image
+RDEPENDS:${PN} += "libgcc"
+
 do_configure () {
 	:
 }
