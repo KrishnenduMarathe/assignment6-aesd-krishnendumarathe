@@ -15,7 +15,7 @@ SRCREV = "197c04fcacbccd42077165fef0e27d5dc81bde70"
 S = "${WORKDIR}/git"
 
 FILES:${PN} += "${sysconfdir}/init.d/lddmodules"
-EXTRA_OEMAKE += "KERNELDIR=${STAGING_KERNEL_BUILDDIR}"
+EXTRA_OEMAKE += "KERNELDIR=${STAGING_KERNEL_BUILDDIR} ccflags-y='-I${S}/include'"
 
 do_configure () {
 	:
