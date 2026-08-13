@@ -1,5 +1,14 @@
 #! /bin/sh
 
+### BEGIN INIT INFO
+# Provides:          scull, fauty and root modules
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Setup out of tree modules on boot
+### END INIT INFO
+
 KVER=$(uname -r)
 MODLOC="/lib/modules/$KVER/extra"
 
