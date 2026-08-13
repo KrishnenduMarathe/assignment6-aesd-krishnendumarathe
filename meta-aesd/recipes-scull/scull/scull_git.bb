@@ -15,6 +15,7 @@ SRCREV = "197c04fcacbccd42077165fef0e27d5dc81bde70"
 S = "${WORKDIR}/git"
 
 FILES:${PN} += "${sysconfdir}/init.d/lddmodules"
+EXTRA_OEMAKE += "-C ${STAGING_KERNEL_DIR}"
 
 do_configure () {
 	:
@@ -30,6 +31,6 @@ do_install () {
 
         # install modules to rootfs
         for modloc in scull misc-modules; do
-            oe_runmake -C ${STAGING_KERNEL_DIR} M=${S}/$modloc INSTALL_MOD_PATH=$(D) modules_install
+            oe_runmake M=${S}/$modloc INSTALL_MOD_PATH=${D} modules_install
         done
 }
